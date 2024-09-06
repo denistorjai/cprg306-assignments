@@ -1,5 +1,7 @@
+// Import Components
 import StudentInfo from "./student-info";
 
+// Export Week-2 Page
 export default function Page() {
     return (
       <main>

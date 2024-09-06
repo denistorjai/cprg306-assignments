@@ -1,5 +1,7 @@
+// Import Required Link Component
 import Link from 'next/link';
 
+// Export Student Info Components
 export default function StudentInfo() {
     return (
         <div> 
