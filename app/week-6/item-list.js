@@ -43,9 +43,9 @@ export default function ItemList() {
 
   return ( 
       <div>
-        <button className={`w-32 h-8 m-3 text-black rounded ${sort === "name" ? "bg-slate-400" : "bg-white"}`} 
+        <button className={`w-32 h-8 m-3 rounded ${sort === "name" ? "bg-sky-500 text-white" : "bg-white text-black"}`} 
         onClick={() => setVariables("name")}> Sort by Name </button>
-        <button className={`w-32 h-8 m-3 bg-white text-black rounded ${sort === "category" ? "bg-slate-400" : "bg-white"} `} 
+        <button className={`w-32 h-8 m-3 rounded ${sort === "category" ? "bg-sky-500 text-white" : "bg-white text-black"} `} 
         onClick={() => setVariables("category")}> Sort by Category </button>
         <div> 
           {sorteditems.map((item, index) => (
