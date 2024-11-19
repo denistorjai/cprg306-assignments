@@ -16,13 +16,13 @@ export default function Page() {
     const router = useRouter();
 
     // States
-    const [items, setitems] = useState([]); // Initialized as an empty array
+    const [items, setitems] = useState([]);
     const [selected, setselected] = useState("");
 
     // Event Handlers
     const handleAddItem = (newItem) => {
         addItem(user.uid, newItem);
-        setitems((prevItems) => [...(Array.isArray(prevItems) ? prevItems : []), newItem]); // Ensure prevItems is an array
+        setitems((prevItems) => [...(Array.isArray(prevItems) ? prevItems : []), newItem]);
     };
 
     const handleItemSelect = (itemName) => {
@@ -36,24 +36,22 @@ export default function Page() {
     // Get User Item Data
     const loaditem = async () => {
         if (!user) {
-            console.error("User is not authenticated");
             return;
         }
         
         try {
-            const dbitems = await getItems(user.uid);  // Await the result if getItems is async
-            console.log("Loaded items:", dbitems); // Log the loaded data
-            setitems(dbitems);  // Set items state with the fetched data
+            const dbitems = await getItems(user.uid);
+            setitems(dbitems);
         } catch (error) {
-            console.error("Error loading items:", error);
+            return
         }
     };
 
     useEffect(() => {
         if (user) {
-            loaditem(); // Call the function when user is authenticated
+            loaditem();
         }
-    }, [user]); // Dependency on user state
+    }, [user]);
 
     return (
         <div className="p-10 flex flex-row ">
